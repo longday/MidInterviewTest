@@ -8,7 +8,7 @@ namespace MidInterviewTest;
     where the Alive property is false. However, if a node
     has an Alive property that is true, all of its parents
     and children should remain in the tree.
-    
+
     Extra:
     Perform the task using recursive and iterative algorithms,
     explain in which cases each one should be used, as well as
@@ -40,9 +40,7 @@ public class Tests
         //visualize tree
         //Print(root);
         NodesCleaner.Clean(root);
-        Assert.Equal(
-            Stringify(root).Trim(),
-            """
+        var expected = """
             T1
             -F11
             --F111
@@ -54,8 +52,8 @@ public class Tests
             --F131
             -F14
             --T141
-            """.Trim()
-        );
+            """.Trim();
+        Assert.Equal(expected, Stringify(root).Trim());
     }
 
     [Fact]
@@ -67,15 +65,13 @@ public class Tests
         //visualize tree
         //Print(root);
         NodesCleaner.Clean(root);
-        Assert.Equal(
-            Stringify(root).Trim(),
-            """
+        var expected = """
             F1
             -F12
             --T121
             ---F1211
-            """.Trim()
-        );
+            """.Trim();
+        Assert.Equal(expected, Stringify(root).Trim());
     }
 
     [Fact]
@@ -107,9 +103,7 @@ public class Tests
         //visualize tree
         //Print(root);
         NodesCleaner.Clean(root);
-        Assert.Equal(
-            Stringify(root).Trim(),
-            """
+        var expected = """
             F1
             -F11
             --F111
@@ -145,8 +139,9 @@ public class Tests
             ---F1851
             --T186
             ---T1861
-            """.Trim()
-        );
+            """.Trim();
+
+        Assert.Equal(expected, Stringify(root).Trim());
     }
 
     private readonly ITestOutputHelper _output;
